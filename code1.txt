@@ -7,20 +7,17 @@ require(ggplot2)
 
 
 # ディレクトリの設定 ---------------------------------------------------------
-setwd("/Users/Yuki/stats2")
+
 
 
 # データの読み込み ----------------------------------------------------------------
 # csvを読み込み，seedというオブジェクト名を付ける
-seed = read.csv("data_text.csv", fileEncoding = "CP932")
 
 
 
 # 基本統計量の算出 ----------------------------------------------------------------
 # 平均の計算はmean()，分散の計算はvar()，要約統計量の計算はsummary()
-mean(seed$x)
-var(seed$x)
-summary(seed)
+
 
 
 # ggplot2を使用してヒストグラムを描く -------------------------------------------------------------------------
@@ -42,7 +39,7 @@ df_prob = data.frame(y = y, prob = prob)
 
 
 # ポアソン分布probを描画する
-g = ggplot(df_prob, aes(x = y, y = prob)) # 縦軸と横軸は何かな？
+g = ggplot(df_prob, aes(x = , y = )) # 縦軸と横軸は何かな？
 l = geom_line(linetype = 2)
 p = geom_point()
 g+l+p+theme_bw()
@@ -54,28 +51,20 @@ g+l+p+theme_bw()+geom_histogram(data = seed, aes(x = x, y = after_stat(density))
 
 # ラムダを大きくした場合 -------------------------------------------------------------
 # ポアソン分布は平均（λ）=分散だから，どんなグラフになると予想できる？
-lambda_l = 6
+lambda_l = 
 y = 0:9
 prob_l = dpois(y, lambda = lambda_l)
 df_prob_l = data.frame(y = y, prob = prob_l)
 
-g = ggplot(df_prob_l, aes(x = y, y = prob)) # 縦軸と横軸は何かな？
-l = geom_line(linetype = 2)
-p = geom_point()
-g+l+p+theme_bw()
 
 
 # ラムダを小さくした場合 -------------------------------------------------------------
 # ポアソン分布は平均（λ）=分散だから，どんなグラフになると予想できる？
-lambda_s = 1
+lambda_s = 
 y = 0:9
 prob_s = dpois(y, lambda = lambda_s)
 df_prob_s = data.frame(y = y, prob = prob_s)
 
-g = ggplot(df_prob_s, aes(x = y, y = prob)) # 縦軸と横軸は何かな？
-l = geom_line(linetype = 2)
-p = geom_point()
-g+l+p+theme_bw()
 
 
 # seed（データ）と確率分布の当てはまりの良さ ------------------------------------------------------
